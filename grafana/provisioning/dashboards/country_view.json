@@ -1,0 +1,2098 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "COVID-19 Country/Region Stats from Johns Hopkins",
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 9,
+    "iteration": 1587586580050,
+    "links": [],
+    "panels": [
+      {
+        "cacheTimeout": null,
+        "datasource": "InfluxDB-Covid",
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 0,
+          "y": 0
+        },
+        "id": 2,
+        "links": [],
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [
+                {
+                  "id": 0,
+                  "op": "=",
+                  "text": "N/A",
+                  "type": 1,
+                  "value": "null"
+                }
+              ],
+              "nullValueMode": "connected",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal"
+        },
+        "pluginVersion": "6.7.2",
+        "targets": [
+          {
+            "groupBy": [],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "table",
+            "select": [
+              [
+                {
+                  "params": [
+                    "confirmed"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "sum"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Cases",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "cacheTimeout": null,
+        "datasource": "InfluxDB-Covid",
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 3,
+          "y": 0
+        },
+        "id": 3,
+        "links": [],
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [
+                {
+                  "id": 0,
+                  "op": "=",
+                  "text": "N/A",
+                  "type": 1,
+                  "value": "null"
+                }
+              ],
+              "nullValueMode": "connected",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal"
+        },
+        "pluginVersion": "6.7.2",
+        "targets": [
+          {
+            "groupBy": [],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "deaths"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "sum"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Deaths",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "cacheTimeout": null,
+        "datasource": "InfluxDB-Covid",
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 6,
+          "y": 0
+        },
+        "id": 4,
+        "links": [],
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [
+                {
+                  "id": 0,
+                  "op": "=",
+                  "text": "N/A",
+                  "type": 1,
+                  "value": "null"
+                }
+              ],
+              "nullValueMode": "connected",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal"
+        },
+        "pluginVersion": "6.7.2",
+        "targets": [
+          {
+            "groupBy": [],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "recovered"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "sum"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Recovered",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "columns": [],
+        "datasource": "InfluxDB-Covid",
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 9,
+          "y": 0
+        },
+        "id": 15,
+        "pageSize": null,
+        "showHeader": true,
+        "sort": {
+          "col": 2,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Last Import",
+            "align": "auto",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "MM/DD/YY h:mm:ss a",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Time",
+            "thresholds": [],
+            "type": "date",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "combined_key"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "table",
+            "select": [
+              [
+                {
+                  "params": [
+                    "confirmed"
+                  ],
+                  "type": "field"
+                }
+              ],
+              [
+                {
+                  "params": [
+                    "deaths"
+                  ],
+                  "type": "field"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "County Stats",
+        "transform": "table",
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "content": "\n# Title\n\nFor markdown syntax help: [commonmark.org/help](https://commonmark.org/help/)\n\n\n\n",
+        "datasource": null,
+        "gridPos": {
+          "h": 8,
+          "w": 7,
+          "x": 17,
+          "y": 0
+        },
+        "id": 9,
+        "mode": "markdown",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": []
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Panel Title",
+        "type": "text"
+      },
+      {
+        "cacheTimeout": null,
+        "datasource": "InfluxDB-Covid",
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 0,
+          "y": 4
+        },
+        "id": 11,
+        "links": [],
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [
+                {
+                  "id": 0,
+                  "op": "=",
+                  "text": "N/A",
+                  "type": 1,
+                  "value": "null"
+                }
+              ],
+              "nullValueMode": "connected",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal"
+        },
+        "pluginVersion": "6.7.2",
+        "targets": [
+          {
+            "groupBy": [],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "confirmed"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "count"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Counties with Case(s)",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "cacheTimeout": null,
+        "datasource": "InfluxDB-Covid",
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 3,
+          "y": 4
+        },
+        "id": 12,
+        "links": [],
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [
+                {
+                  "id": 0,
+                  "op": "=",
+                  "text": "N/A",
+                  "type": 1,
+                  "value": "null"
+                }
+              ],
+              "nullValueMode": "connected",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal"
+        },
+        "pluginVersion": "6.7.2",
+        "targets": [
+          {
+            "groupBy": [],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "confirmed"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "median"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Avg Cases per County",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "cacheTimeout": null,
+        "datasource": "InfluxDB-Covid",
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 6,
+          "y": 4
+        },
+        "id": 13,
+        "links": [],
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [
+                {
+                  "id": 0,
+                  "op": "=",
+                  "text": "N/A",
+                  "type": 1,
+                  "value": "null"
+                }
+              ],
+              "nullValueMode": "connected",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "horizontal"
+        },
+        "pluginVersion": "6.7.2",
+        "targets": [
+          {
+            "groupBy": [],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "deaths"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "median"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Avg Deaths per County",
+        "transparent": true,
+        "type": "stat"
+      },
+      {
+        "circleMaxSize": 30,
+        "circleMinSize": "10",
+        "colors": [
+          "rgb(255, 255, 255)",
+          "#8AB8FF",
+          "#1F60C4",
+          "#CA95E5",
+          "#8F3BB8"
+        ],
+        "datasource": "InfluxDB-Covid",
+        "decimals": 0,
+        "esGeoPoint": "geohash",
+        "esLocationName": "combined_key",
+        "esMetric": "confirmed",
+        "gridPos": {
+          "h": 15,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "hideEmpty": false,
+        "hideZero": true,
+        "id": 6,
+        "initialZoom": "3",
+        "locationData": "geohash",
+        "mapCenter": "North America",
+        "mapCenterLatitude": 40,
+        "mapCenterLongitude": -100,
+        "maxDataPoints": 1,
+        "mouseWheelZoom": false,
+        "showLegend": true,
+        "stickyLabels": false,
+        "tableQueryOptions": {
+          "geohashField": "geohash",
+          "latitudeField": "latitude",
+          "longitudeField": "longitude",
+          "metricField": "metric",
+          "queryType": "geohash"
+        },
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "geohash"
+                ],
+                "type": "tag"
+              },
+              {
+                "params": [
+                  "combined_key"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "table",
+            "select": [
+              [
+                {
+                  "params": [
+                    "confirmed"
+                  ],
+                  "type": "field"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "thresholds": "0,20,100,500",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Cases by County",
+        "transparent": true,
+        "type": "grafana-worldmap-panel",
+        "unitPlural": "",
+        "unitSingle": "",
+        "valueName": "total"
+      },
+      {
+        "circleMaxSize": 30,
+        "circleMinSize": "10",
+        "colors": [
+          "rgb(255, 255, 255)",
+          "#FFCB7D",
+          "#FF780A",
+          "#FF7383",
+          "#C4162A",
+          "#8F3BB8"
+        ],
+        "datasource": "InfluxDB-Covid",
+        "decimals": 0,
+        "esGeoPoint": "geohash",
+        "esLocationName": "combined_key",
+        "esMetric": "deaths",
+        "gridPos": {
+          "h": 15,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "hideEmpty": false,
+        "hideZero": false,
+        "id": 7,
+        "initialZoom": "3",
+        "locationData": "geohash",
+        "mapCenter": "North America",
+        "mapCenterLatitude": 40,
+        "mapCenterLongitude": -100,
+        "maxDataPoints": 1,
+        "mouseWheelZoom": false,
+        "showLegend": true,
+        "stickyLabels": false,
+        "tableQueryOptions": {
+          "geohashField": "geohash",
+          "latitudeField": "latitude",
+          "longitudeField": "longitude",
+          "metricField": "metric",
+          "queryType": "geohash"
+        },
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "geohash"
+                ],
+                "type": "tag"
+              },
+              {
+                "params": [
+                  "combined_key"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "table",
+            "select": [
+              [
+                {
+                  "params": [
+                    "deaths"
+                  ],
+                  "type": "field"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "thresholds": "0,5,10,20,100",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Deaths by County",
+        "transparent": true,
+        "type": "grafana-worldmap-panel",
+        "unitPlural": "",
+        "unitSingle": "",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "InfluxDB-Covid",
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 0,
+          "y": 23
+        },
+        "hiddenSeries": false,
+        "id": 17,
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": true,
+          "max": false,
+          "min": false,
+          "rightSide": true,
+          "show": true,
+          "sort": "current",
+          "sortDesc": true,
+          "total": false,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "alias": "$tag_combined_key",
+            "groupBy": [
+              {
+                "params": [
+                  "combined_key"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "confirmed"
+                  ],
+                  "type": "field"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "1M",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Cases ",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "transparent": true,
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "InfluxDB-Covid",
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 12,
+          "y": 23
+        },
+        "hiddenSeries": false,
+        "id": 18,
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": true,
+          "max": false,
+          "min": false,
+          "rightSide": true,
+          "show": true,
+          "sort": "current",
+          "sortDesc": true,
+          "total": false,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "alias": "$tag_combined_key",
+            "groupBy": [
+              {
+                "params": [
+                  "combined_key"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "covid",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "deaths"
+                  ],
+                  "type": "field"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "country_region",
+                "operator": "=~",
+                "value": "/^$country$/"
+              }
+            ]
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "1M",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Deaths",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "transparent": true,
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      }
+    ],
+    "refresh": "2h",
+    "schemaVersion": 22,
+    "style": "dark",
+    "tags": [
+      "covid",
+      "country",
+      "region"
+    ],
+    "templating": {
+      "list": [
+        {
+          "allValue": null,
+          "current": {
+            "tags": [],
+            "text": "US",
+            "value": "US"
+          },
+          "datasource": "InfluxDB-Covid",
+          "definition": "SHOW TAG VALUES with KEY=country_region",
+          "hide": 0,
+          "includeAll": true,
+          "index": -1,
+          "label": null,
+          "multi": false,
+          "name": "country",
+          "options": [
+            {
+              "selected": false,
+              "text": "All",
+              "value": "$__all"
+            },
+            {
+              "selected": false,
+              "text": "Afghanistan",
+              "value": "Afghanistan"
+            },
+            {
+              "selected": false,
+              "text": "Albania",
+              "value": "Albania"
+            },
+            {
+              "selected": false,
+              "text": "Algeria",
+              "value": "Algeria"
+            },
+            {
+              "selected": false,
+              "text": "Andorra",
+              "value": "Andorra"
+            },
+            {
+              "selected": false,
+              "text": "Angola",
+              "value": "Angola"
+            },
+            {
+              "selected": false,
+              "text": "Antigua and Barbuda",
+              "value": "Antigua and Barbuda"
+            },
+            {
+              "selected": false,
+              "text": "Argentina",
+              "value": "Argentina"
+            },
+            {
+              "selected": false,
+              "text": "Armenia",
+              "value": "Armenia"
+            },
+            {
+              "selected": false,
+              "text": "Australia",
+              "value": "Australia"
+            },
+            {
+              "selected": false,
+              "text": "Austria",
+              "value": "Austria"
+            },
+            {
+              "selected": false,
+              "text": "Azerbaijan",
+              "value": "Azerbaijan"
+            },
+            {
+              "selected": false,
+              "text": "Bahamas",
+              "value": "Bahamas"
+            },
+            {
+              "selected": false,
+              "text": "Bahrain",
+              "value": "Bahrain"
+            },
+            {
+              "selected": false,
+              "text": "Bangladesh",
+              "value": "Bangladesh"
+            },
+            {
+              "selected": false,
+              "text": "Barbados",
+              "value": "Barbados"
+            },
+            {
+              "selected": false,
+              "text": "Belarus",
+              "value": "Belarus"
+            },
+            {
+              "selected": false,
+              "text": "Belgium",
+              "value": "Belgium"
+            },
+            {
+              "selected": false,
+              "text": "Belize",
+              "value": "Belize"
+            },
+            {
+              "selected": false,
+              "text": "Benin",
+              "value": "Benin"
+            },
+            {
+              "selected": false,
+              "text": "Bhutan",
+              "value": "Bhutan"
+            },
+            {
+              "selected": false,
+              "text": "Bolivia",
+              "value": "Bolivia"
+            },
+            {
+              "selected": false,
+              "text": "Bosnia and Herzegovina",
+              "value": "Bosnia and Herzegovina"
+            },
+            {
+              "selected": false,
+              "text": "Botswana",
+              "value": "Botswana"
+            },
+            {
+              "selected": false,
+              "text": "Brazil",
+              "value": "Brazil"
+            },
+            {
+              "selected": false,
+              "text": "Brunei",
+              "value": "Brunei"
+            },
+            {
+              "selected": false,
+              "text": "Bulgaria",
+              "value": "Bulgaria"
+            },
+            {
+              "selected": false,
+              "text": "Burkina Faso",
+              "value": "Burkina Faso"
+            },
+            {
+              "selected": false,
+              "text": "Burma",
+              "value": "Burma"
+            },
+            {
+              "selected": false,
+              "text": "Burundi",
+              "value": "Burundi"
+            },
+            {
+              "selected": false,
+              "text": "Cabo Verde",
+              "value": "Cabo Verde"
+            },
+            {
+              "selected": false,
+              "text": "Cambodia",
+              "value": "Cambodia"
+            },
+            {
+              "selected": false,
+              "text": "Cameroon",
+              "value": "Cameroon"
+            },
+            {
+              "selected": false,
+              "text": "Canada",
+              "value": "Canada"
+            },
+            {
+              "selected": false,
+              "text": "Central African Republic",
+              "value": "Central African Republic"
+            },
+            {
+              "selected": false,
+              "text": "Chad",
+              "value": "Chad"
+            },
+            {
+              "selected": false,
+              "text": "Chile",
+              "value": "Chile"
+            },
+            {
+              "selected": false,
+              "text": "China",
+              "value": "China"
+            },
+            {
+              "selected": false,
+              "text": "Colombia",
+              "value": "Colombia"
+            },
+            {
+              "selected": false,
+              "text": "Congo (Brazzaville)",
+              "value": "Congo (Brazzaville)"
+            },
+            {
+              "selected": false,
+              "text": "Congo (Kinshasa)",
+              "value": "Congo (Kinshasa)"
+            },
+            {
+              "selected": false,
+              "text": "Costa Rica",
+              "value": "Costa Rica"
+            },
+            {
+              "selected": false,
+              "text": "Cote d'Ivoire",
+              "value": "Cote d'Ivoire"
+            },
+            {
+              "selected": false,
+              "text": "Croatia",
+              "value": "Croatia"
+            },
+            {
+              "selected": false,
+              "text": "Cruise Ship",
+              "value": "Cruise Ship"
+            },
+            {
+              "selected": false,
+              "text": "Cuba",
+              "value": "Cuba"
+            },
+            {
+              "selected": false,
+              "text": "Cyprus",
+              "value": "Cyprus"
+            },
+            {
+              "selected": false,
+              "text": "Czechia",
+              "value": "Czechia"
+            },
+            {
+              "selected": false,
+              "text": "Denmark",
+              "value": "Denmark"
+            },
+            {
+              "selected": false,
+              "text": "Diamond Princess",
+              "value": "Diamond Princess"
+            },
+            {
+              "selected": false,
+              "text": "Djibouti",
+              "value": "Djibouti"
+            },
+            {
+              "selected": false,
+              "text": "Dominica",
+              "value": "Dominica"
+            },
+            {
+              "selected": false,
+              "text": "Dominican Republic",
+              "value": "Dominican Republic"
+            },
+            {
+              "selected": false,
+              "text": "Ecuador",
+              "value": "Ecuador"
+            },
+            {
+              "selected": false,
+              "text": "Egypt",
+              "value": "Egypt"
+            },
+            {
+              "selected": false,
+              "text": "El Salvador",
+              "value": "El Salvador"
+            },
+            {
+              "selected": false,
+              "text": "Equatorial Guinea",
+              "value": "Equatorial Guinea"
+            },
+            {
+              "selected": false,
+              "text": "Eritrea",
+              "value": "Eritrea"
+            },
+            {
+              "selected": false,
+              "text": "Estonia",
+              "value": "Estonia"
+            },
+            {
+              "selected": false,
+              "text": "Eswatini",
+              "value": "Eswatini"
+            },
+            {
+              "selected": false,
+              "text": "Ethiopia",
+              "value": "Ethiopia"
+            },
+            {
+              "selected": false,
+              "text": "Fiji",
+              "value": "Fiji"
+            },
+            {
+              "selected": false,
+              "text": "Finland",
+              "value": "Finland"
+            },
+            {
+              "selected": false,
+              "text": "France",
+              "value": "France"
+            },
+            {
+              "selected": false,
+              "text": "Gabon",
+              "value": "Gabon"
+            },
+            {
+              "selected": false,
+              "text": "Gambia",
+              "value": "Gambia"
+            },
+            {
+              "selected": false,
+              "text": "Georgia",
+              "value": "Georgia"
+            },
+            {
+              "selected": false,
+              "text": "Germany",
+              "value": "Germany"
+            },
+            {
+              "selected": false,
+              "text": "Ghana",
+              "value": "Ghana"
+            },
+            {
+              "selected": false,
+              "text": "Greece",
+              "value": "Greece"
+            },
+            {
+              "selected": false,
+              "text": "Grenada",
+              "value": "Grenada"
+            },
+            {
+              "selected": false,
+              "text": "Guatemala",
+              "value": "Guatemala"
+            },
+            {
+              "selected": false,
+              "text": "Guinea",
+              "value": "Guinea"
+            },
+            {
+              "selected": false,
+              "text": "Guinea-Bissau",
+              "value": "Guinea-Bissau"
+            },
+            {
+              "selected": false,
+              "text": "Guyana",
+              "value": "Guyana"
+            },
+            {
+              "selected": false,
+              "text": "Haiti",
+              "value": "Haiti"
+            },
+            {
+              "selected": false,
+              "text": "Holy See",
+              "value": "Holy See"
+            },
+            {
+              "selected": false,
+              "text": "Honduras",
+              "value": "Honduras"
+            },
+            {
+              "selected": false,
+              "text": "Hungary",
+              "value": "Hungary"
+            },
+            {
+              "selected": false,
+              "text": "Iceland",
+              "value": "Iceland"
+            },
+            {
+              "selected": false,
+              "text": "India",
+              "value": "India"
+            },
+            {
+              "selected": false,
+              "text": "Indonesia",
+              "value": "Indonesia"
+            },
+            {
+              "selected": false,
+              "text": "Iran",
+              "value": "Iran"
+            },
+            {
+              "selected": false,
+              "text": "Iraq",
+              "value": "Iraq"
+            },
+            {
+              "selected": false,
+              "text": "Ireland",
+              "value": "Ireland"
+            },
+            {
+              "selected": false,
+              "text": "Israel",
+              "value": "Israel"
+            },
+            {
+              "selected": false,
+              "text": "Italy",
+              "value": "Italy"
+            },
+            {
+              "selected": false,
+              "text": "Jamaica",
+              "value": "Jamaica"
+            },
+            {
+              "selected": false,
+              "text": "Japan",
+              "value": "Japan"
+            },
+            {
+              "selected": false,
+              "text": "Jordan",
+              "value": "Jordan"
+            },
+            {
+              "selected": false,
+              "text": "Kazakhstan",
+              "value": "Kazakhstan"
+            },
+            {
+              "selected": false,
+              "text": "Kenya",
+              "value": "Kenya"
+            },
+            {
+              "selected": false,
+              "text": "Korea, South",
+              "value": "Korea, South"
+            },
+            {
+              "selected": false,
+              "text": "Kosovo",
+              "value": "Kosovo"
+            },
+            {
+              "selected": false,
+              "text": "Kuwait",
+              "value": "Kuwait"
+            },
+            {
+              "selected": false,
+              "text": "Kyrgyzstan",
+              "value": "Kyrgyzstan"
+            },
+            {
+              "selected": false,
+              "text": "Laos",
+              "value": "Laos"
+            },
+            {
+              "selected": false,
+              "text": "Latvia",
+              "value": "Latvia"
+            },
+            {
+              "selected": false,
+              "text": "Lebanon",
+              "value": "Lebanon"
+            },
+            {
+              "selected": false,
+              "text": "Liberia",
+              "value": "Liberia"
+            },
+            {
+              "selected": false,
+              "text": "Libya",
+              "value": "Libya"
+            },
+            {
+              "selected": false,
+              "text": "Liechtenstein",
+              "value": "Liechtenstein"
+            },
+            {
+              "selected": false,
+              "text": "Lithuania",
+              "value": "Lithuania"
+            },
+            {
+              "selected": false,
+              "text": "Luxembourg",
+              "value": "Luxembourg"
+            },
+            {
+              "selected": false,
+              "text": "MS Zaandam",
+              "value": "MS Zaandam"
+            },
+            {
+              "selected": false,
+              "text": "Madagascar",
+              "value": "Madagascar"
+            },
+            {
+              "selected": false,
+              "text": "Malawi",
+              "value": "Malawi"
+            },
+            {
+              "selected": false,
+              "text": "Malaysia",
+              "value": "Malaysia"
+            },
+            {
+              "selected": false,
+              "text": "Maldives",
+              "value": "Maldives"
+            },
+            {
+              "selected": false,
+              "text": "Mali",
+              "value": "Mali"
+            },
+            {
+              "selected": false,
+              "text": "Malta",
+              "value": "Malta"
+            },
+            {
+              "selected": false,
+              "text": "Mauritania",
+              "value": "Mauritania"
+            },
+            {
+              "selected": false,
+              "text": "Mauritius",
+              "value": "Mauritius"
+            },
+            {
+              "selected": false,
+              "text": "Mexico",
+              "value": "Mexico"
+            },
+            {
+              "selected": false,
+              "text": "Moldova",
+              "value": "Moldova"
+            },
+            {
+              "selected": false,
+              "text": "Monaco",
+              "value": "Monaco"
+            },
+            {
+              "selected": false,
+              "text": "Mongolia",
+              "value": "Mongolia"
+            },
+            {
+              "selected": false,
+              "text": "Montenegro",
+              "value": "Montenegro"
+            },
+            {
+              "selected": false,
+              "text": "Morocco",
+              "value": "Morocco"
+            },
+            {
+              "selected": false,
+              "text": "Mozambique",
+              "value": "Mozambique"
+            },
+            {
+              "selected": false,
+              "text": "Namibia",
+              "value": "Namibia"
+            },
+            {
+              "selected": false,
+              "text": "Nepal",
+              "value": "Nepal"
+            },
+            {
+              "selected": false,
+              "text": "Netherlands",
+              "value": "Netherlands"
+            },
+            {
+              "selected": false,
+              "text": "New Zealand",
+              "value": "New Zealand"
+            },
+            {
+              "selected": false,
+              "text": "Nicaragua",
+              "value": "Nicaragua"
+            },
+            {
+              "selected": false,
+              "text": "Niger",
+              "value": "Niger"
+            },
+            {
+              "selected": false,
+              "text": "Nigeria",
+              "value": "Nigeria"
+            },
+            {
+              "selected": false,
+              "text": "North Macedonia",
+              "value": "North Macedonia"
+            },
+            {
+              "selected": false,
+              "text": "Norway",
+              "value": "Norway"
+            },
+            {
+              "selected": false,
+              "text": "Oman",
+              "value": "Oman"
+            },
+            {
+              "selected": false,
+              "text": "Pakistan",
+              "value": "Pakistan"
+            },
+            {
+              "selected": false,
+              "text": "Panama",
+              "value": "Panama"
+            },
+            {
+              "selected": false,
+              "text": "Papua New Guinea",
+              "value": "Papua New Guinea"
+            },
+            {
+              "selected": false,
+              "text": "Paraguay",
+              "value": "Paraguay"
+            },
+            {
+              "selected": false,
+              "text": "Peru",
+              "value": "Peru"
+            },
+            {
+              "selected": false,
+              "text": "Philippines",
+              "value": "Philippines"
+            },
+            {
+              "selected": false,
+              "text": "Poland",
+              "value": "Poland"
+            },
+            {
+              "selected": false,
+              "text": "Portugal",
+              "value": "Portugal"
+            },
+            {
+              "selected": false,
+              "text": "Qatar",
+              "value": "Qatar"
+            },
+            {
+              "selected": false,
+              "text": "Romania",
+              "value": "Romania"
+            },
+            {
+              "selected": false,
+              "text": "Russia",
+              "value": "Russia"
+            },
+            {
+              "selected": false,
+              "text": "Rwanda",
+              "value": "Rwanda"
+            },
+            {
+              "selected": false,
+              "text": "Saint Kitts and Nevis",
+              "value": "Saint Kitts and Nevis"
+            },
+            {
+              "selected": false,
+              "text": "Saint Lucia",
+              "value": "Saint Lucia"
+            },
+            {
+              "selected": false,
+              "text": "Saint Vincent and the Grenadines",
+              "value": "Saint Vincent and the Grenadines"
+            },
+            {
+              "selected": false,
+              "text": "San Marino",
+              "value": "San Marino"
+            },
+            {
+              "selected": false,
+              "text": "Sao Tome and Principe",
+              "value": "Sao Tome and Principe"
+            },
+            {
+              "selected": false,
+              "text": "Saudi Arabia",
+              "value": "Saudi Arabia"
+            },
+            {
+              "selected": false,
+              "text": "Senegal",
+              "value": "Senegal"
+            },
+            {
+              "selected": false,
+              "text": "Serbia",
+              "value": "Serbia"
+            },
+            {
+              "selected": false,
+              "text": "Seychelles",
+              "value": "Seychelles"
+            },
+            {
+              "selected": false,
+              "text": "Sierra Leone",
+              "value": "Sierra Leone"
+            },
+            {
+              "selected": false,
+              "text": "Singapore",
+              "value": "Singapore"
+            },
+            {
+              "selected": false,
+              "text": "Slovakia",
+              "value": "Slovakia"
+            },
+            {
+              "selected": false,
+              "text": "Slovenia",
+              "value": "Slovenia"
+            },
+            {
+              "selected": false,
+              "text": "Somalia",
+              "value": "Somalia"
+            },
+            {
+              "selected": false,
+              "text": "South Africa",
+              "value": "South Africa"
+            },
+            {
+              "selected": false,
+              "text": "South Sudan",
+              "value": "South Sudan"
+            },
+            {
+              "selected": false,
+              "text": "Spain",
+              "value": "Spain"
+            },
+            {
+              "selected": false,
+              "text": "Sri Lanka",
+              "value": "Sri Lanka"
+            },
+            {
+              "selected": false,
+              "text": "Sudan",
+              "value": "Sudan"
+            },
+            {
+              "selected": false,
+              "text": "Suriname",
+              "value": "Suriname"
+            },
+            {
+              "selected": false,
+              "text": "Sweden",
+              "value": "Sweden"
+            },
+            {
+              "selected": false,
+              "text": "Switzerland",
+              "value": "Switzerland"
+            },
+            {
+              "selected": false,
+              "text": "Syria",
+              "value": "Syria"
+            },
+            {
+              "selected": false,
+              "text": "Taiwan*",
+              "value": "Taiwan*"
+            },
+            {
+              "selected": false,
+              "text": "Tanzania",
+              "value": "Tanzania"
+            },
+            {
+              "selected": false,
+              "text": "Thailand",
+              "value": "Thailand"
+            },
+            {
+              "selected": false,
+              "text": "Timor-Leste",
+              "value": "Timor-Leste"
+            },
+            {
+              "selected": false,
+              "text": "Togo",
+              "value": "Togo"
+            },
+            {
+              "selected": false,
+              "text": "Trinidad and Tobago",
+              "value": "Trinidad and Tobago"
+            },
+            {
+              "selected": false,
+              "text": "Tunisia",
+              "value": "Tunisia"
+            },
+            {
+              "selected": false,
+              "text": "Turkey",
+              "value": "Turkey"
+            },
+            {
+              "selected": true,
+              "text": "US",
+              "value": "US"
+            },
+            {
+              "selected": false,
+              "text": "Uganda",
+              "value": "Uganda"
+            },
+            {
+              "selected": false,
+              "text": "Ukraine",
+              "value": "Ukraine"
+            },
+            {
+              "selected": false,
+              "text": "United Arab Emirates",
+              "value": "United Arab Emirates"
+            },
+            {
+              "selected": false,
+              "text": "United Kingdom",
+              "value": "United Kingdom"
+            },
+            {
+              "selected": false,
+              "text": "Uruguay",
+              "value": "Uruguay"
+            },
+            {
+              "selected": false,
+              "text": "Uzbekistan",
+              "value": "Uzbekistan"
+            },
+            {
+              "selected": false,
+              "text": "Venezuela",
+              "value": "Venezuela"
+            },
+            {
+              "selected": false,
+              "text": "Vietnam",
+              "value": "Vietnam"
+            },
+            {
+              "selected": false,
+              "text": "West Bank and Gaza",
+              "value": "West Bank and Gaza"
+            },
+            {
+              "selected": false,
+              "text": "Western Sahara",
+              "value": "Western Sahara"
+            },
+            {
+              "selected": false,
+              "text": "Yemen",
+              "value": "Yemen"
+            },
+            {
+              "selected": false,
+              "text": "Zambia",
+              "value": "Zambia"
+            },
+            {
+              "selected": false,
+              "text": "Zimbabwe",
+              "value": "Zimbabwe"
+            }
+          ],
+          "query": "SHOW TAG VALUES with KEY=country_region",
+          "refresh": 0,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "now-24h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "",
+    "title": "COVID19 Country/Region",
+    "uid": "D66L0b3Wk",
+    "variables": {
+      "list": []
+    },
+    "version": 44
+  }

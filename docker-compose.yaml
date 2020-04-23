@@ -1,0 +1,30 @@
+version: '2'
+services:
+  influxdb:
+    image: influxdb:1.7.10
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_USER=telegraf 
+      - INFLUXDB_USER_PASSWORD=secretpassword
+      - INFLUXDB_DB=covid
+    volumes:
+      - influxdb:/var/lib/influxdb
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    depends_on:
+      - influxdb
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-worldmap-panel
+    links:
+      - influxdb
+    volumes:
+      - grafana:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning/
+volumes:
+  influxdb:
+  grafana:
