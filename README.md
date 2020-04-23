@@ -1,6 +1,13 @@
 # Covid19 Data to Influx
 COMING SOON
 
+### Pre-reqs
+- Python 3
+```bash
+pip install influxdb geohash2
+```
+- Docker
+
 ### Usage
 Below is current usage today. This will be more automated in the future.
 
@@ -36,7 +43,12 @@ python main.py archives/$latest-file-2020.csv
 ```
 
 ### To Do
-[ ] Automatic DB creation
+[ X ] Docs
+
+[ X ] Automatic DB creation
+
 [ ] Automated Pull down of new files and input to Influx
-[ ] Docker-compose
-[ ] Import Dashboard
+
+[ X ] Docker-compose
+
+[ X ] Import Dashboard
