@@ -25,8 +25,8 @@ cp COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/* ./archives/ && \
 
 3) Run the script on all files from 03-22-20 and later. *Earlier files have a different format not prepared in the script*. This is going to take some time to complete. 
 ```bash
-grep -r Last_Update archives/* | awk -F: '{print $1}' > valid.csv && \
-for i in `cat valid.csv`; do python main.py $i ; done
+grep -r Last_Update archives/* | awk -F: '{print $1}' > valid.txt && \
+for i in `cat valid.txt`; do python main.py $i ; done
 ```
 
 4) Login to Grafana UI http://localhost:3000 with admin/admin to begin looking through the Dashboards.
